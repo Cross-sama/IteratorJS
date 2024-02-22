@@ -1,9 +1,15 @@
 const sumFibonacci = (n) => {
-  if (n <= 0 || typeof(n) !== n) {
-    return n
+  if (n <= 1 || typeof n !== 'number') {
+    return 0;
   }
-  return sumFibonacci(n - 1) + sumFibonacci(n - 2)
-}
+  const iter = (counter, acc, newNum) => {
+    if (counter === 0) {
+        return acc - 1
+    }
+    return iter(counter - 1, acc + newNum, newNum = acc)
+  }
+  return iter(n, 1, 0);
+};
 
 console.log(sumFibonacci(1)); // 0 (только первое число Фибоначчи)
 console.log(sumFibonacci(2)); // 1 (0 + 1)
